@@ -7,10 +7,7 @@
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
   "homepage": "https://github.com/Ell3dition/",
-  "repository": {
-    "url": "https://github.com/Ell3dition/sb-components.git",
-    "type": "git"
-  },
+  "repositoryUrl":"https://github.com/Ell3dition/sb-components.git",
   "release": {
     "branches": [
       "main"
