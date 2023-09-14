@@ -34,7 +34,6 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: "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"
-          NPM_TOKEN: "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"
+          GITHUB_TOKEN: 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
+          NPM_TOKEN: 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
         run: npx semantic-release
-        continue-on-error: true
