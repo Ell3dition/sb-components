@@ -1,21 +1,52 @@
 {
-  "name": "my-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "mj-my-storybook-vitrina",
+  "version": "0.1.0",
+  "private": false,
   "type": "module",
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/Ell3dition/",
+  "repository": {
+    "url": "https://github.com/Ell3dition/sb-components",
+    "type": "git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">=4.0.0"
+  },
   "scripts": {
     "dev": "npm run storybook",
-    "build": "tsc && vite build",
+    "build": "npm run clean && tsc && npm run copy-files",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_4099c002f10c76d"
+    "chromatic": "npx chromatic --project-token=chpt_4099c002f10c76d",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "react": ">=16",
     "react-dom": "^18.2.0"
   },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+],
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.1",
     "@storybook/addon-interactions": "^7.4.1",
@@ -31,10 +62,13 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "chromatic": "^7.1.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "rimraf": "^5.0.1",
+    "semantic-release": "^21.1.1",
     "storybook": "^7.4.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
